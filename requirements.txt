@@ -1,5 +1,5 @@
 Flask
-hypercorn
+gunicorn
 yfinance
 numpy
 pandas
