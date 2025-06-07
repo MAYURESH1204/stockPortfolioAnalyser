@@ -5,7 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 
-app = Flask(__name__)
+import os
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
