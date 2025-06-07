@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Optimizer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        max-width: 960px;
+        margin-top: 50px;
+      }
+      .chart-container {
+        margin-top: 30px;
+        text-align: center;
+      }
+      .download-link {
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Portfolio Risk & Return Optimizer</h1>
+      <form method="POST" class="mt-4">
+        <div class="mb-3">
+          <label for="tickers" class="form-label"
+            >Enter Tickers (comma-separated):</label
+          >
+          <input
+            type="text"
+            name="tickers"
+            id="tickers"
+            class="form-control"
+            placeholder="AAPL,MSFT,GOOGL,AMZN,TSLA"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze Portfolio</button>
+      </form>
+
+      {% if plt_chart %}
+      <div class="chart-container">
+        <h3>Efficient Frontier</h3>
+        <img
+          src="/{{ plt_chart }}"
+          alt="Efficient Frontier"
+          class="img-fluid"
+        />
+      </div>
+      {% endif %} {% if csv_file %}
+      <div class="download-link">
+        <a
+          href="/download/{{ csv_file.split('/')[-1] }}"
+          class="btn btn-success"
+          >Download Data CSV</a
+        >
+      </div>
+      {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
