@@ -3,5 +3,5 @@ gunicorn
 yfinance
 numpy
 pandas
-matplotlib.pyplot
+matplotlib
 scipy
